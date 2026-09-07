@@ -50,9 +50,13 @@ class Elements:
         \n
 [#f2cdcd b]UPDATES[/#f2cdcd b]
     [#f9e2af b]- 4/9/2026[/#f9e2af b]
-        - [+] Created fastapi PATCH method
+        - [+] Created fastapi PATCH method to change tasks' status
         - [+] Created table of pending tasks
         - [+] Added user input for file / directory tracking
+    [#f9e2af b]- 7/9/2026[/#f9e2af b]
+        - [+] Created installation script 
+        - [+] Created live table view of updating tasks
+        - [+] Added argparsing for task status changing
         \n
 [#94e2d5 b]NOTES[/#94e2d5 b]
     - By changing the status of a task in the database, note that the task will automatically execute the shell script proposed by the llm, review the changes carefully!
