@@ -8,8 +8,8 @@ class main_UI(UVICORN):
     def __init__(self) -> None:
         self.parser: ArgumentParser = ArgumentParser(description="A program that monitors tasks in the background and logs them using sqlmodel")
         self.parser.add_argument(
-                "-s",
-                "--status",
+                "-cs",
+                "--change-status",
                 type=str,
                 nargs=2,
                 help="Change the status of a task with ID available status: ['pending','complete']",
@@ -18,7 +18,7 @@ class main_UI(UVICORN):
         
         self.args = self.parser.parse_args()
         
-        if self.args.status:
+        if self.args.change_status:
             self.task_id_arg: int = int(self.args.status[0])
             self.task_status_arg: str = str(self.args.status[1])
             response: patch = patch(
