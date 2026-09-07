@@ -19,8 +19,8 @@ class main_UI(UVICORN):
         self.args = self.parser.parse_args()
         
         if self.args.change_status:
-            self.task_id_arg: int = int(self.args.status[0])
-            self.task_status_arg: str = str(self.args.status[1])
+            self.task_id_arg: int = int(self.args.change_status[0])
+            self.task_status_arg: str = str(self.args.change_status[1])
             response: patch = patch(
                 f"http://127.0.0.1:8000/tasks/{self.task_id_arg}",
                 params={
