@@ -10,3 +10,7 @@
 [![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#)
 
 A dashboard utilizing STRANDS-SDK agents to carry out repetitive tasks by storing detected bugs and issues in a sql database accessible in the fastapi framework
+<img width="1920" height="1074" alt="image" src="https://github.com/user-attachments/assets/682596b1-7560-4138-bce7-b030cc6af187" />
+<img width="1916" height="1080" alt="image" src="https://github.com/user-attachments/assets/e48b4366-53be-49fe-a889-afb6a75f8902" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/82d980a9-8008-498e-9c6f-9af92cf3ebdd" />
