@@ -22,3 +22,4 @@ A dashboard utilizing STRANDS-SDK agents to carry out repetitive tasks by storin
 
 <img width="1338" height="244" alt="image" src="https://github.com/user-attachments/assets/8c78ee0d-9bc7-4bfb-80c8-0f33aeee4045" />
 
+<img width="1545" height="987" alt="image" src="https://github.com/user-attachments/assets/f0aa1532-49f3-49a0-a1d2-61b4f40e75f4" />
