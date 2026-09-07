@@ -1,29 +1,42 @@
-import uvicorn
-import asyncio
-
 from typing import Dict, List, Any, Union, Tuple
-from utils.UI import TUI 
-from dataclasses import dataclass
-from fastapi import FastAPI, Depends, Query, HTTPException, status
 from subprocess import run
-
-from sqlmodel import SQLModel, Field, create_engine, Session, select, delete
-from sqlalchemy.exc import OperationalError
-
 from pathlib import Path
-from time import sleep
+from dataclasses import dataclass
+import sys
 
-from strands import Agent, tool
-from strands.models.ollama import OllamaModel
+try: 
+    import uvicorn
+    import asyncio
 
-from prompt_toolkit import prompt
-from prompt_toolkit.formatted_text import HTML
-from .database import SQL_SETUP, Task_Template
-from .GLOBAL import TABLE, LAYOUT
+    from utils.UI import TUI  
+    from fastapi import FastAPI, Depends, Query, HTTPException, status 
 
-from rich.console import Console
-from rich.live import Live
-from rich.panel import Panel
+    from sqlmodel import SQLModel, Field, create_engine, Session, select, delete
+    from sqlalchemy.exc import OperationalError
+ 
+    from time import sleep
+
+    from strands import Agent, tool
+    from strands.models.ollama import OllamaModel
+
+    from prompt_toolkit import prompt
+    from prompt_toolkit.formatted_text import HTML
+    from .database import SQL_SETUP, Task_Template
+    from .GLOBAL import TABLE, LAYOUT
+
+    from rich.console import Console
+    from rich.live import Live
+    from rich.panel import Panel
+
+except ImportError as i:
+    agreement: str = input("Some libraries were not detected, would you like to install them? (y/n): ").lower()
+    if agreement == "y":
+        print("INSTALLING LIBRARIES NOW!")
+        run(f"pip install -r {Path(__file__).parent.parent / 'libraries.txt'}", shell=True)
+    else:
+        print("EXITING NOW")
+
+    sys.exit(1)
 
 class AGENT(TUI):
     @tool
