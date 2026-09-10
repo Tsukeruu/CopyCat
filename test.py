@@ -1,2 +1,5 @@
 import time 
-impor sys
+import sys
+
+if x:
+    pass

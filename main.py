@@ -31,7 +31,7 @@ class main_UI(UVICORN):
                 }
             )
             if response.ok:
-                self.execute_shell_script(id=self.task_id_arg)
+                self.execute_shell_script(task_id=self.task_id_arg)
             return
         
         super().__init__()
