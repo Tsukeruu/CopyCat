@@ -43,10 +43,11 @@ class Elements:
 [#fab387 b]DESCRIPTION[/#fab387 b]
     - CopyCat utilizes strands sdk agents to automate regular human tasks by taking appointed files and monitoring them.
     - CopyCat encounters errors and stores them in a sql database located in the utils folder.
-    - Tasks are stored in the fastapi server which is hosted by uvicorn and in the database.\n
+    - Tasks are stored in the fastapi server which is hosted by uvicorn and in the database.
+    [#f5c2e7 b]- Files and directories being tracked must have .git[/#f5c2e7 b]\n
 [#f9e2af b]FIXES[/#f9e2af b]
     [#f38ba8 b]- 4/9/2026[/#f38ba8 b]
-        - [!] NOT YET  
+        - [!] Not yet! 
         \n
 [#f2cdcd b]UPDATES[/#f2cdcd b]
     [#f9e2af b]- 4/9/2026[/#f9e2af b]
@@ -57,6 +58,9 @@ class Elements:
         - [+] Created installation script 
         - [+] Created live table view of updating tasks
         - [+] Added argparsing for task status changing
+    [#f9e2af b]- 10/9/2026[/#f9e2af b]
+        - [+] Created SECRETS.env to store aws bedrock secrets
+        - [+] Updated context awareness and implemented git tracking 
         \n
 [#94e2d5 b]NOTES[/#94e2d5 b]
     - By changing the status of a task in the database, note that the task will automatically execute the shell script proposed by the llm, review the changes carefully!

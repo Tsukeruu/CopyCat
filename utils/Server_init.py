@@ -154,6 +154,14 @@ class UVICORN(TUI):
         with Session(SQL_SETUP.engine) as session:
             yield session 
 
+    def execute_shell_script(self, task_id: int) -> str | None:
+        with Session(SQL_SETUP.engine) as session:
+            requested_task_id: int = session.get(Task_Template, task_id)
+            if requested_task_id.shell_command:
+                run(requested_task_id.shell_command,shell=True)
+            else:
+                return "Task does not have shell command associated with it"
+
     def run_uvicorn(self) -> None:
         run(self.CMD["clear_screen"])
         uvicorn.run(self.fastapi_server,host="127.0.0.1",port=8000)

@@ -30,6 +30,8 @@ class main_UI(UVICORN):
                     "task_status": self.task_status_arg
                 }
             )
+            if response.ok:
+                self.execute_shell_script(id=self.task_id_arg)
             return
         
         super().__init__()
