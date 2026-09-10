@@ -65,10 +65,10 @@ class AGENT(TUI):
     def git_diff(self, dir_file: str) -> str:
         if dir_file.is_file():
             print("FILE EXISTS")
-            return run(f"cd {dir_file.parent} && git diff {dir_file}", shell=True, capture_output=True,text=True)
+            return run(f"cd {dir_file.parent} && git diff {dir_file}", shell=True, capture_output=True,text=True).stdout
         elif dir_file.is_dir() and (dir_file / ".git").exists():
             print("DIRECTORY EXISTS")
-            return run(f"cd {dir_file} && git diff {dir_file}", shell=True, capture_output=True,text=True)
+            return run(f"cd {dir_file} && git diff {dir_file}", shell=True, capture_output=True,text=True).stdout
         else:
             sys.exit(1) 
 
