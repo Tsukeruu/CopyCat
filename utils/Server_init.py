@@ -73,16 +73,25 @@ class AGENT(TUI):
             sys.exit(1) 
 
     def __init__(self, llama_model: str) -> None:
+        """
         self.Ollama_Model: OllamaModel = OllamaModel(
-                host="http://localhost:11434",
-                model_id=llama_model,
-                options={"temperature": 0.0}
+               host="http://localhost:11434",
+               model_id=llama_model,
+               options={"temperature": 0.0}
             )
-
+        """
         self.Agent: Agent = Agent(
-                self.Ollama_Model,
+                model="global.anthropic.claude-sonnet-4-6",
                 tools=[self.append_task, self.return_tasks],
-                system_prompt="""First, check the database for existing tasks using the `return_tasks` tool, then if the task you are about to do exists, do not create a duplicate. Your job is to detect errors in the system and use the append_task tool to add them to a database, the tasks must be unique, provide your own issue summary, proposed fix, and also provide your own custom shell command to fix the error, and give them a status of 'pending', the issues you're being fed are git diffs on files / directories, track changes on them """,
+                system_prompt="""You are an automated code audit assistant. Your job is to inspect git diff output for syntax errors,
+                bugs, or broken logic. \n
+                Workflow:\n
+                1. Always check existing tasks using `return_tasks` first.\n
+                "2. Analyze the git diff carefully. Lines starting with '+' are additions.\n
+                "3. If you spot a clear syntax error or bug in the additions, use `append_task` to log it.\n
+                4. Do NOT log duplicate issues. If no new bugs exist in the diff, do not call `append_task`.
+                5. Provide only BRIEF summaries (20-25 words) and proposed fixes but effective shell scripts!
+                """,
                 callback_handler=None
             ) 
 
