@@ -3,9 +3,12 @@ from utils.UI import TUI
 from utils.Server_init import UVICORN
 from argparse import ArgumentParser
 from requests import patch
+from os import environ
+from dotenv import load_dotenv
 
-class main_UI(UVICORN):
+class main_UI(UVICORN): 
     def __init__(self) -> None:
+        load_dotenv("SECRETS.env")
         self.parser: ArgumentParser = ArgumentParser(description="A program that monitors tasks in the background and logs them using sqlmodel")
         self.parser.add_argument(
                 "-cs",
@@ -17,7 +20,7 @@ class main_UI(UVICORN):
             )
         
         self.args = self.parser.parse_args()
-        
+
         if self.args.change_status:
             self.task_id_arg: int = int(self.args.change_status[0])
             self.task_status_arg: str = str(self.args.change_status[1])
