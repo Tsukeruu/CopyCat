@@ -27,8 +27,8 @@ class main_UI(UVICORN):
                     "task_status": self.task_status_arg
                 }
             )
-            return
+            retur
         
-        super().__init__(
+        super().__init__()
 
 app: main_UI = main_UI()
