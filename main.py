@@ -2,7 +2,7 @@ from typing import Dict, List, Union, Tuple, Any
 from utils.UI import TUI
 from utils.Server_init import UVICORN
 from argparse import ArgumentParser
-from requests import patch
+fro requests import patch
 
 class main_UI(UVICORN):
     def __init__(self) -> None:

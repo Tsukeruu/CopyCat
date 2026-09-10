@@ -65,10 +65,10 @@ class AGENT(TUI):
     def git_diff(self, dir_file: str) -> str:
         if dir_file.is_file():
             print("FILE EXISTS")
-            return run(f"cd {dir_file.parent} && git diff {dir_file}", shell=True, capture_output=True,text=True).stdout
+            return run(f"cd {dir_file.parent} && git diff {dir_file}", shell=True, capture_output=True,text=True)
         elif dir_file.is_dir() and (dir_file / ".git").exists():
             print("DIRECTORY EXISTS")
-            return run(f"cd {dir_file} && git diff {dir_file}", shell=True, capture_output=True,text=True).stdout
+            return run(f"git -C diff {dir_file}", shell=True, capture_output=True,text=True)
         else:
             sys.exit(1) 
 
@@ -106,7 +106,7 @@ class UVICORN(TUI):
     def __init__(self) -> None:
         super().__init__()
         self.fastapi_server: FastAPI = FastAPI() 
-        self.agent: AGENT = AGENT("llama3.2:3b")
+        self.agent: AGENT = AGENT("qwen2.5-coder:3b")
 
         @self.fastapi_server.get("/tasks")
         async def task_route(session: Session = Depends(self.get_session)):
