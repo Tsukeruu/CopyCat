@@ -68,7 +68,7 @@ class AGENT(TUI):
             return run(f"cd {dir_file.parent} && git diff {dir_file}", shell=True, capture_output=True,text=True)
         elif dir_file.is_dir() and (dir_file / ".git").exists():
             print("DIRECTORY EXISTS")
-            return run(f"git -C diff {dir_file}", shell=True, capture_output=True,text=True)
+            return run(f"git -C {dir_file} diff", shell=True, capture_output=True,text=True)
         else:
             sys.exit(1) 
 
