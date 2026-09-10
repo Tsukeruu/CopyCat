@@ -29,6 +29,6 @@ class main_UI(UVICORN):
             )
             return
         
-        super().__init__()
+        super().__init__(
 
 app: main_UI = main_UI()

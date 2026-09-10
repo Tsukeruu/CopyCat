@@ -62,6 +62,16 @@ class AGENT(TUI):
             
             return '\n'.join([f"Status - {task.status} - ID: {task.Id} - Summary: {task.issue_summary} - Proposed_fix: {task.proposed_fix} - Shell Command: {task.shell_command}" for task in tasks])
 
+    def git_diff(self, dir_file: str) -> str:
+        if dir_file.is_file():
+            print("FILE EXISTS")
+            return run(f"cd {dir_file.parent} && git diff {dir_file}", shell=True, capture_output=True,text=True)
+        elif dir_file.is_dir() and (dir_file / ".git").exists():
+            print("DIRECTORY EXISTS")
+            return run(f"cd {dir_file} && git diff {dir_file}", shell=True, capture_output=True,text=True)
+        else:
+            sys.exit(1) 
+
     def __init__(self, llama_model: str) -> None:
         self.Ollama_Model: OllamaModel = OllamaModel(
                 host="http://localhost:11434",
@@ -72,17 +82,17 @@ class AGENT(TUI):
         self.Agent: Agent = Agent(
                 self.Ollama_Model,
                 tools=[self.append_task, self.return_tasks],
-                system_prompt="""First, check the database for existing tasks using the `return_tasks` tool, then if the task you are about to do exists, do not create a duplicate. Your job is to detect errors in the system and use the append_task tool to add them to a database, the tasks must be unique, provide your own issue summary, proposed fix, and also provide your own custom shell command to fix the error, and give them a status of 'pending' """,
+                system_prompt="""First, check the database for existing tasks using the `return_tasks` tool, then if the task you are about to do exists, do not create a duplicate. Your job is to detect errors in the system and use the append_task tool to add them to a database, the tasks must be unique, provide your own issue summary, proposed fix, and also provide your own custom shell command to fix the error, and give them a status of 'pending', the issues you're being fed are git diffs on files / directories, track changes on them """,
                 callback_handler=None
             ) 
 
     def agentic_loop(self) -> None:
-        self.file_directory: prompt = Path(prompt("Input a file or directory to track (absolute / relative): ", placeholder=HTML("<style fg='#585b70'><b>File / directory</b></style>"))).expanduser()
+        self.file_directory: prompt = Path(prompt("Input a file or directory to track (absolute / relative): ", placeholder=HTML("<style fg='#585b70'><b>File / directory</b></style>"))).expanduser() 
         if self.file_directory.exists(): 
             with Live(LAYOUT, refresh_per_second=1, auto_refresh = False, screen=True) as live:
                 while True: 
                     self.Agent(f"""
-                        Here is a list of existing tasks in the database: {self.return_tasks()}. To prevent duplicates, do not use the append_task tool if the task you're about to log exists in our database, log only UNIQUE issues. That said someone reported an issue with how his python's if statement had a typo in his return  
+                        Here is a list of existing tasks in the database: {self.return_tasks()}. To prevent duplicates, do not use the append_task tool if the task you're about to log exists in our database, log only UNIQUE issues. That said, here is a list of the git diff in a file / directory, track errors and bugs / syntax errors: {self.git_diff(self.file_directory)}
                     """)
 
                     LAYOUT["tasks"].update(Panel(self.refresh_task_list(self.return_task_list()),title="TASKS",title_align="left",style="#89b4fa"))
