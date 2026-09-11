@@ -15,11 +15,8 @@
 [![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#)
 
 A dashboard utilizing STRANDS-SDK agents to carry out repetitive tasks by storing detected bugs and issues in a sql database accessible in the fastapi framework
-<img width="1920" height="1074" alt="image" src="https://github.com/user-attachments/assets/682596b1-7560-4138-bce7-b030cc6af187" />
-<img width="1916" height="1080" alt="image" src="https://github.com/user-attachments/assets/e48b4366-53be-49fe-a889-afb6a75f8902" />
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/82d980a9-8008-498e-9c6f-9af92cf3ebdd" />
-
-<img width="1338" height="244" alt="image" src="https://github.com/user-attachments/assets/8c78ee0d-9bc7-4bfb-80c8-0f33aeee4045" />
-
-<img width="1545" height="987" alt="image" src="https://github.com/user-attachments/assets/f0aa1532-49f3-49a0-a1d2-61b4f40e75f4" />
+<img width="1881" height="991" alt="image" src="https://github.com/user-attachments/assets/857e6c6e-8637-441c-9158-af9d60b84142" />
+<img width="1873" height="983" alt="image" src="https://github.com/user-attachments/assets/329b62c6-41a4-4d08-b584-1b3b534a5bec" />
+<img width="1865" height="974" alt="image" src="https://github.com/user-attachments/assets/789a394a-f70b-439a-bc3a-b0e9d873d5a7" />
+<img width="1173" height="219" alt="image" src="https://github.com/user-attachments/assets/3c0b52ac-f72a-4a7a-b959-fd56c2c1cc63" />
+<img width="1162" height="657" alt="image" src="https://github.com/user-attachments/assets/1768ebe5-2dd8-4837-9e10-b16ab55e0854" />
