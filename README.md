@@ -20,3 +20,5 @@ A dashboard utilizing STRANDS-SDK agents to carry out repetitive tasks by storin
 <img width="1865" height="974" alt="image" src="https://github.com/user-attachments/assets/789a394a-f70b-439a-bc3a-b0e9d873d5a7" />
 <img width="1173" height="219" alt="image" src="https://github.com/user-attachments/assets/3c0b52ac-f72a-4a7a-b959-fd56c2c1cc63" />
 <img width="1162" height="657" alt="image" src="https://github.com/user-attachments/assets/1768ebe5-2dd8-4837-9e10-b16ab55e0854" />
+
+TO truly get the best experience it is recommended that you are a linux user for compatibility with each shell script that is a proposed fix for the task
