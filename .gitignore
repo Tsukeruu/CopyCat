@@ -1,1 +1,3 @@
 SECRETS.env
+test.py
+utils/agent_tasks.db
