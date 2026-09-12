@@ -35,3 +35,9 @@ To truly get the best experience it is recommended that you are a linux user for
 - To navigate copycat, simply install the libraries using ```pip install -r libraries.txt```
 - The initial database is not created, to create it run the program using ```python main.py``` and select "Create database"
 - Restart and run again.
+
+## Built with:
+- **Rich**
+- **Strands sdk agents**
+- **sqlmodel**
+- **prompt-toolkit**
