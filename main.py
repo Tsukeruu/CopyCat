@@ -6,9 +6,11 @@ from requests import patch
 from os import environ
 from dotenv import load_dotenv
 
+from pathlib import Path
+
 class main_UI(UVICORN): 
     def __init__(self) -> None:
-        load_dotenv("SECRETS.env")
+        load_dotenv(Path(__file__).parent / "SECRETS.env")
         self.parser: ArgumentParser = ArgumentParser(description="A program that monitors tasks in the background and logs them using sqlmodel")
         self.parser.add_argument(
                 "-cs",
